@@ -3,44 +3,31 @@
 #include "Prodotto.h"
 #endif
 
-#include<vector>
+#ifndef CANZONE_H
+#define CANZONE_H
+#include"Canzone.h"
+#endif
+
+#define MAX 100
+
 #include<string>
+
+using namespace std;
 
 class CdAudio : public Prodotto{
 	
 	private:
 		
-		vector<string>canzoni;
+		Canzone canzoni[MAX];
+		int nCanzoni=0;
 	
 	public:
 	
 		CdAudio();
-		CdAudio(string titolo,string autore,float prezzo,int quantita) : Prodotto(titolo,autore,prezzo,quantita){
-			
-			this->canzoni=canzoni;
-		}	
 		
-		string getAutore(){
-			
-			return autore;
-		}
+		void addCanzoni(Canzone);
 		
-		float getPrezzo(){
-			
-			return prezzo;
-		}
+		CdAudio(string,string,float,int);
 		
-	
-		void stampa(){
-			
-			Prodotto::stampa();
-			
-			cout<<"----Lista Canzoni----"<<endl;
-			
-			for(int i=0;i<canzoni.size();i++){
-				
-				cout<<canzoni.at(i)<<endl;
-				
-			}
-		}
+		void stampa();
 };
